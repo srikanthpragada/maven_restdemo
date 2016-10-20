@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Books</title>
+<script src="jquery-3.1.0.js">
+	
+</script>
+<script>
+	$(document).ready(function() {
+		$.getJSON("rest/catalog", {}, showBooks);
+	});
+
+	function showBooks(books) {
+		$.each(books, 
+	   	  function(idx, book) {
+			$("#books").append(
+					"<li>" + book.title + " - " + book.price + "</li>");
+		});
+	}
+</script>
+</head>
+<body>
+	<h2>Books Catalog</h2>
+
+	<ul id="books">
+	</ul>
+
+</body>
+</html>
